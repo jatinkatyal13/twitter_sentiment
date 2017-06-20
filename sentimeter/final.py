@@ -22,10 +22,10 @@ from textblob import TextBlob
 
 # In[7]:
 
-api = twitter.Api(consumer_key='iXZyChJoFTYpsJl765BUn3F4o',
-                      consumer_secret='BZZ5gasUplbBTsmNjwQVv52xrnl41aMg94gRkqAAJ5fcu95daa',
-                      access_token_key='2794625946-BGeQbC4Xu2v3Vwa9hTrwiOsiEHMFX2LjxgVgQU1',
-                      access_token_secret='ZThu9UaQsRSAsjaz5QdhVQyqbPjSUM9c8ArO7rnyA7MmS')
+api = twitter.Api(consumer_key='35yd9z95aUPS3LJ4qsB61p9jt',
+                      consumer_secret='eoY9hyJytLQ0ZueLF5lMmMMwkz7fQ3cVh8ZudAAlcEKIELySQW',
+                      access_token_key='844192291640160258-DPeveBM11r87sfeDj3guqtLsBX3yAHH',
+                      access_token_secret='3MehqCcDw3tYgsR5Tnh0j73bxtlgxLX5YGozcDlDUBqtl')
 
 
 # In[8]:
@@ -100,19 +100,19 @@ def getRes(choice, query):
     a = []
     b = []
 
-    if(choice==1):
+    if choice==1:
         
         s = "q="+query
         final = api.GetSearch(raw_query=s)
         a = tor(final)
         
-    elif(choice==2):
+    elif choice==2:
         
         s = "q=%23"+query
         final = api.GetSearch(raw_query=s)
         a = tor(final)
         
-    elif(choice==3):
+    elif choice==3:
         
         s = "q=%40"+query
         final = api.GetSearch(raw_query=s)
@@ -142,22 +142,29 @@ def getSentimentGraph (option, query):
 
 
     # calculate
+
+    option = int(option)
+
     r = getRes(option, query)
-    res = {}
+    res = [
+        ['Handle'.encode('utf-8'), 'Positive'.encode('utf-8'), 'Negative'.encode('utf-8'), 'Neutral'.encode('utf-8')]
+    ]
     if option != 4:
-        res[query] = {
-            'pos' : r[0],
-            'neg' : r[1],
-            'neu' : r[2]
-        }
+        res = [
+            ["Sentiment".encode('utf-8'), "Number".encode('utf-8')],
+            ["Positive".encode('utf-8'), r[0]],
+            ["Negative".encode('utf-8'), r[1]],
+            ["Neutral".encode('utf-8'), r[2]],
+        ]
 
     else:
         for i in range(len(r)):
-            res[hand[i]] = {
-                'pos' : r[i][0],
-                'neg' : r[i][1],
-                'neu' : r[i][2]
-            }
+            res.append([
+                hand[i].encode('utf-8'),
+                r[i][0],
+                r[i][1],
+                r[i][2]
+            ])
 
 
     return res
