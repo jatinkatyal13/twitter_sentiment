@@ -2,7 +2,7 @@
 {% block body %}
     <div class="row">
         <div id="input_hastag" class="col s12">
-            <form method="get" action="{% url 'analyse' %} ">
+            <form method="get" action="/analyse/1">
                 <div class="input-field col s4 m3 l2 offset-s2 offset-m2 offset-l2">
                     <label for="{{ input_hastag.q.id_for_label }}">Input Hashtag:</label>
                     {{ input_hastag.q }}
@@ -18,7 +18,7 @@
     </div>
  <div class="row">
         <div id="input_hastag" class="col s12">
-            <form method="get" action="{% url 'analyse' %} ">
+            <form method="get" action="/analyse/2">
                 <div class="input-field col s4 m3 l2 offset-s2 offset-m2 offset-l2">
                     <label for="{{ input_hastag.q.id_for_label }}">Input String:</label>
                     {{ input_hastag.q }}
@@ -35,7 +35,7 @@
 
 <div class="row">
         <div id="input_hastag" class="col s12">
-            <form method="get" action="{% url 'analyse' %} ">
+            <form method="get" action="/analyse/3">
                 <div class="input-field col s4 m3 l2 offset-s2 offset-m2 offset-l2">
                     <label for="{{ input_hastag.q.id_for_label }}">Input Handle:</label>
                     {{ input_hastag.q }}
@@ -51,11 +51,10 @@
     </div>
 <div class="row">
         <div id="input_hastag" class="col s12">
-            <form method="get" action="{% url 'analyse' %} ">
-                <div class="input-field col s4 m3 l2 offset-s2 offset-m2 offset-l2">
-                    <label for="{{ input_hastag.q.id_for_label }}">ALL CSIR HANDLES:</label>
-                    {{ input_hastag.q }}
-                     </div>
+            <form method="get" action="/analyse/4 ">
+                <div class="col s4 m3 l2 offset-s2 offset-m2 offset-l2">
+                    <h5>All CSIR Handles</h5>
+                 </div>
                 <br>
                 <button class="btn waves-effect waves-light" type="submit">Analyse
                     <i class="material-icons right">send</i>
