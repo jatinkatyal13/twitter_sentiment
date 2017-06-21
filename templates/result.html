@@ -6,12 +6,18 @@
 
 
 
-      google.charts.load('current', {
-          'packages': ['bar']
-      });
+      // google.charts.load('current', {
+      //     'packages': ['bar']
+      // });
+      google.charts.load('current', {packages: ['corechart', 'bar']});
       google.charts.setOnLoadCallback(drawChart);
 
       function drawChart() {
+
+
+
+
+
           var data = google.visualization.arrayToDataTable({{ data|safe }});
 
           var options = {
@@ -19,17 +25,21 @@
                   title: 'Company Performance',
                   subtitle: 'Sales, Expenses, and Profit: 2014-2017',
               },
-              bars: 'vertical',
+              bars: 'horizontal',
               vAxis: {
                   format: 'decimal'
               },
-              height: 400,
+              
               colors: ['#1b9e77', '#d95f02', '#7570b3']
           };
 
-          var chart = new google.charts.Bar(document.getElementById('barchart_material'));
+          var chart = new google.visualization.BarChart(document.getElementById('barchart_material'));
 
           chart.draw(data, google.charts.Bar.convertOptions(options));
+
+
+
+
       }
       $(window).resize(function(){            //to make chart Responsive
             drawChart();

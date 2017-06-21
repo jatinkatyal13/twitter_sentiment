@@ -12,8 +12,11 @@ def index(request):
 
 def analyse(request, choice):
     user_input = userinput(request.GET or None)
-    if request.GET and user_input.is_valid():
-        input_hastag = user_input.cleaned_data['q']
+    if int(choice) == 4 or (request.GET and user_input.is_valid()) :
+    	try:
+        	input_hastag = user_input.cleaned_data['q']
+        except:
+        	input_hastag = ''
 
         #to be changed
         data = final.getSentimentGraph(choice, input_hastag)

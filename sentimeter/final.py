@@ -22,10 +22,10 @@ from textblob import TextBlob
 
 # In[7]:
 
-api = twitter.Api(consumer_key='35yd9z95aUPS3LJ4qsB61p9jt',
-                      consumer_secret='eoY9hyJytLQ0ZueLF5lMmMMwkz7fQ3cVh8ZudAAlcEKIELySQW',
-                      access_token_key='844192291640160258-DPeveBM11r87sfeDj3guqtLsBX3yAHH',
-                      access_token_secret='3MehqCcDw3tYgsR5Tnh0j73bxtlgxLX5YGozcDlDUBqtl')
+api = twitter.Api(consumer_key='c5PWC3zeqDtcUiX5WilOranXL',
+                      consumer_secret='SaIx1DH4nfekCVmdz69sh7y4yv5UOk6WNHzBYinTidIBeSkPcc',
+                      access_token_key='4332692365-5WxA1pYMkaKVqYiCDauOtKf8YtKlwmbqasZbyO3',
+                      access_token_secret='au8ErKdjWSfW191kwye5Lagm4mwtD16PNX9Fnrgb7t0IJ')
 
 
 # In[8]:
@@ -82,11 +82,13 @@ def tor(final):
         else:
             neg = neg+1
     
-    posper = pos/total*100
-    negper = neg/total*100
-    neuper = neu/total*100
-    
-    polar = [posper,negper,neuper]
+    if total > 0:
+        posper = pos/total*100
+        negper = neg/total*100
+        neuper = neu/total*100
+        polar = [posper,negper,neuper]
+    else:
+        polar = [0, 0, 0]
     
     return(polar)
 
