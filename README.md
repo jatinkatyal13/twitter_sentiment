@@ -1,1 +1,1 @@
-A project by www.github.com/divyanisharma
+A twitter sentimental analysis project
